@@ -126,5 +126,16 @@
         android:fontFamily="@font/poppins"
         android:gravity="top"
         />
+    <Button
+        android:id="@+id/button"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="28dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="698dp"
+        android:background="@drawable/btnellipse"
+        android:text="@string/btn_text"
+        android:textColor="@color/white"/>
 
 </RelativeLayout>
