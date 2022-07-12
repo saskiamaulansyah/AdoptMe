@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    tools:context=".RegisterActivity">
 
     <View
         android:id="@+id/logo"
@@ -14,62 +14,58 @@
         android:layout_alignParentTop="true"
         android:background="@drawable/logo"
         android:elevation="4dp"
-        app:layout_constraintBottom_toTopOf="@+id/textInputLayout"
+        app:layout_constraintBottom_toTopOf="@+id/EdRegisterUsernamelay"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
+        android:id="@+id/EdRegisterUsernamelay"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="256dp"
         android:layout_marginEnd="32dp"
         android:hint="Username"
         app:endIconMode="clear_text"
-        app:layout_constraintBottom_toTopOf="@+id/textInputLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
         app:boxStrokeColor="@color/pink"
         app:hintTextColor="@color/pink"
+
         app:boxCornerRadiusBottomEnd="15dp"
         app:boxCornerRadiusTopEnd="15dp"
         app:boxCornerRadiusBottomStart="15dp"
         app:boxCornerRadiusTopStart="15dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editText1"
+            android:id="@+id/EdRegisterUsername"
             android:inputType="text"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <requestFocus />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout2"
+        android:id="@+id/EdRegisterPhoneLay"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
-        android:hint="Password"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:hint="Phone Number"
+        app:layout_constraintBottom_toTopOf="@+id/EdRegisterPasswordLay"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.531"
-
-        app:passwordToggleEnabled="true"
-
+        app:layout_constraintTop_toBottomOf="@+id/EdRegisterUsernamelay"
+        app:layout_constraintVertical_bias="0.096"
         app:boxStrokeColor="@color/pink"
         app:hintTextColor="@color/pink"
 
@@ -79,7 +75,39 @@
         app:boxCornerRadiusTopStart="15dp">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editText2"
+            android:id="@+id/EdRegisterPhone"
+            android:inputType="number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/EdRegisterPasswordLay"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="116dp"
+        android:layout_marginEnd="32dp"
+        android:hint="Password"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/EdRegisterUsernamelay"
+        app:passwordToggleEnabled="true"
+        app:endIconCheckable="true"
+        app:boxStrokeColor="@color/pink"
+        app:hintTextColor="@color/pink"
+
+        app:boxCornerRadiusBottomEnd="15dp"
+        app:boxCornerRadiusTopEnd="15dp"
+        app:boxCornerRadiusBottomStart="15dp"
+        app:boxCornerRadiusTopStart="15dp">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/EdRegisterPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
@@ -87,23 +115,21 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <requestFocus />
-
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button"
+        android:id="@+id/buttonRegister"
         android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="68dp"
         android:background="@drawable/btnellipse"
-        android:text="@string/btn_text2"
+        android:text="@string/btn_register"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2"
+        app:layout_constraintTop_toBottomOf="@+id/EdRegisterPasswordLay"
         app:layout_constraintVertical_bias="0.876" />
 
     <TextView
@@ -114,27 +140,27 @@
         android:layout_marginTop="11dp"
         android:layout_marginBottom="36dp"
         android:gravity="center"
-        android:text="@string/dont_have"
+        android:text="@string/have_account"
         android:textAppearance="@style/dont_have"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/txtToSignUp"
-        app:layout_constraintHorizontal_bias="0.91"
+        app:layout_constraintEnd_toStartOf="@+id/txtToSignIn"
+        app:layout_constraintHorizontal_bias="0.885"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/buttonRegister"
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/txtToSignUp"
+        android:id="@+id/txtToSignIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="36dp"
-        android:text="@string/btn_register"
+        android:text="@string/btn_text2"
         android:textAppearance="@style/dont_have"
         android:textColor="#FF6765"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.841"
+        app:layout_constraintHorizontal_bias="0.677"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
-        app:layout_constraintVertical_bias="0.157" />
+        app:layout_constraintTop_toBottomOf="@+id/buttonRegister"
+        app:layout_constraintVertical_bias="0.18" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
