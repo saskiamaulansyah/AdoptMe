@@ -7,4 +7,6 @@
     <string name="btn_register">Sign Up</string>
     <string name="dont_have">Don’t have an account?</string>
     <string name="have_account">Have an account?</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
