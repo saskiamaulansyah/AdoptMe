@@ -7,4 +7,5 @@
     <string name="btn_register">Sign Up</string>
     <string name="dont_have">Don’t have an account?</string>
     <string name="have_account">Have an account?</string>
+    <string name="prefStatus">loggedin</string>
 </resources>
