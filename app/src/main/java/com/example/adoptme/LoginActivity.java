@@ -66,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
         getSupportActionBar().hide();
 
         txtToSignUp = findViewById(R.id.txtToSignUp);
-        button = findViewById(R.id.button);
+        button = findViewById(R.id.buttonLogin);
         txtToSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
