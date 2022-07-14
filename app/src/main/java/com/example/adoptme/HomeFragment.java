@@ -2,11 +2,16 @@ package com.example.adoptme;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.viewpager.widget.ViewPager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +28,12 @@ public class HomeFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    //ui views
+    private ViewPager viewPager;
+
+    private ArrayList<MyModelCard> myModelArrayList;
+    private MyAdapterCard myAdapterCard;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -53,12 +64,57 @@ public class HomeFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+//
     }
 
+    private void loadCards() {
+        myModelArrayList = new ArrayList<>();
+        myModelArrayList.add(new MyModelCard("Title 01","desc 01", "03/08/2022", R.drawable.banner_malang_food));
+        myModelArrayList.add(new MyModelCard("Title 02","desc 02", "03/08/2022", R.drawable.dota));
+        myModelArrayList.add(new MyModelCard("Title 03","desc 03", "03/08/2022", R.drawable.dota2));
+        myModelArrayList.add(new MyModelCard("Title 04","desc 04", "03/08/2022", R.drawable.valorant));
+        myModelArrayList.add(new MyModelCard("Title 05","desc 05", "03/08/2022", R.drawable.valorant2));
+
+        myAdapterCard = new MyAdapterCard(getContext(), myModelArrayList);
+
+        viewPager.setAdapter(myAdapterCard);
+        viewPager.setPadding(100,0,100,0);
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_home, container, false);
+
+        viewPager = rootView.findViewById(R.id.viewPager);
+        loadCards();
+
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                String title = myModelArrayList.get(position).getTitle();
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+
+        return rootView;
     }
+//
+//    @Override
+//    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+//        super.onViewCreated(view, savedInstanceState);
+//
+//
+//
+//    }
 }
