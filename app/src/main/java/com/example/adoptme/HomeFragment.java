@@ -4,12 +4,14 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -34,6 +36,8 @@ public class HomeFragment extends Fragment {
 
     private ArrayList<MyModelCard> myModelArrayList;
     private MyAdapterCard myAdapterCard;
+
+    private CardView btn_favarite;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -90,10 +94,17 @@ public class HomeFragment extends Fragment {
         viewPager = rootView.findViewById(R.id.viewPager);
         loadCards();
 
+        btn_favarite = rootView.findViewById(R.id.btn_favorite);
+
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                String title = myModelArrayList.get(position).getTitle();
+                btn_favarite.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Toast.makeText(getContext(), String.valueOf(position), Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
 
             @Override
@@ -109,12 +120,4 @@ public class HomeFragment extends Fragment {
 
         return rootView;
     }
-//
-//    @Override
-//    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-//        super.onViewCreated(view, savedInstanceState);
-//
-//
-//
-//    }
 }
