@@ -2,8 +2,11 @@ package com.example.adoptme;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -41,7 +44,7 @@ public class LoginActivity extends AppCompatActivity {
 
     TextView txtToSignUp;
     Button button;
-    private EditText username,password;
+    private EditText email,password;
     public static final String MyPREFERENCES = "MyPrefs" ;
     public static final String name = "nameKey";
     public static final String pass = "passwordKey";
@@ -50,7 +53,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        username = (EditText)findViewById(R.id.editText1);
+        email = (EditText)findViewById(R.id.editText1);
         password = (EditText)findViewById(R.id.editText2);
         sharedpreferences = getSharedPreferences("UserInfo",
                 Context.MODE_PRIVATE);
@@ -76,7 +79,7 @@ public class LoginActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String tex_email = Objects.requireNonNull(username.getText()).toString();
+                String tex_email = Objects.requireNonNull(email.getText()).toString();
                 String tex_password = Objects.requireNonNull(password.getText()).toString();
                 if (TextUtils.isEmpty(tex_email) || TextUtils.isEmpty(tex_password)){
                     Toast.makeText(LoginActivity.this,
@@ -104,12 +107,13 @@ public class LoginActivity extends AppCompatActivity {
         System.out.println("email : " +email);
         System.out.println("password :" +password);
 
-        final ProgressDialog progressDialog = new ProgressDialog(
+        final Dialog progressDialog = new Dialog(
                 LoginActivity.this);
-        progressDialog.setTitle("Masuk Akun Anda....");
+        progressDialog.setContentView(R.layout.activity_loading);
+        progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
         progressDialog.setCancelable(false);
         progressDialog.setCanceledOnTouchOutside(false);
-        progressDialog.setIndeterminate(false);
+//        progressDialog.setIndeterminate(false);
         progressDialog.show();
 //        String uRl = "https://sphere-apps.herokuapp.com/api/auth/login";
         String uRl = "https://adoptme-api.000webhostapp.com/login?email="+email+"&password="+password;

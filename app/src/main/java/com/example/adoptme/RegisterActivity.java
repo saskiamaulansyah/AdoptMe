@@ -2,6 +2,7 @@ package com.example.adoptme;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -101,12 +102,12 @@ public class RegisterActivity extends AppCompatActivity {
     }
     private void register(String username, String phone, String password) {
 
-        final ProgressDialog progressDialog = new ProgressDialog(
+        final Dialog progressDialog = new Dialog(
                 RegisterActivity.this);
-        progressDialog.setTitle("Buat Akun....");
+        progressDialog.setContentView(R.layout.activity_loading);
+        progressDialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
         progressDialog.setCancelable(false);
         progressDialog.setCanceledOnTouchOutside(false);
-        progressDialog.setIndeterminate(false);
         progressDialog.show();
 //        String uRl = "https://sphere-apps.herokuapp.com/api/auth/login";
         String uRl = "https://adoptme-api.000webhostapp.com/register?username="+username2+"&email="+phone+"&password="+password2;
