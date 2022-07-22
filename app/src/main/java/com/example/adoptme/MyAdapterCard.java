@@ -1,6 +1,7 @@
 package com.example.adoptme;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,7 +64,7 @@ public class MyAdapterCard extends PagerAdapter {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, title+"\n"+description, Toast.LENGTH_SHORT).show();
+                view.getContext().startActivity(new Intent(view.getContext(), DetailAnimalActivity.class));;
             }
         });
 
