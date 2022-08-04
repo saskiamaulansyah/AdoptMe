@@ -11,7 +11,11 @@ import androidx.viewpager.widget.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.material.bottomsheet.BottomSheetDialog;
 
 import java.util.ArrayList;
 
@@ -38,6 +42,7 @@ public class HomeFragment extends Fragment {
     private MyAdapterCard myAdapterCard;
 
     private CardView btn_favarite;
+    private TextView txtLocation;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -91,6 +96,24 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
+        txtLocation = rootView.findViewById(R.id.textView);
+
+        txtLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(
+                        getContext(), R.style.BottomSheetTheme
+                );
+
+                View bottomSheetView = LayoutInflater.from(getContext())
+                        .inflate(
+                                R.layout.layout_bottom_sheet,
+                                (LinearLayout) rootView.findViewById(R.id.BottomSheetContainer));
+
+                bottomSheetDialog.setContentView(bottomSheetView);
+                bottomSheetDialog.show();
+            }
+        });
         viewPager = rootView.findViewById(R.id.viewPager);
         loadCards();
 
