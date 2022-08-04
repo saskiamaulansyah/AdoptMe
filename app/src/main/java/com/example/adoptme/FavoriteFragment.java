@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.adoptme.listFavourite.AnimalFavorite;
 import com.example.adoptme.listFavourite.AnimalFavoriteAdapter;
@@ -34,6 +35,8 @@ public class FavoriteFragment extends Fragment {
     private RecyclerView recyclerView;
     private AnimalFavoriteAdapter adapter;
     private ArrayList<AnimalFavorite> animalFavoriteArrayList;
+
+    private int sizeAnimalList;
 
     public FavoriteFragment() {
         // Required empty public constructor
@@ -69,25 +72,30 @@ public class FavoriteFragment extends Fragment {
     void addData() {
         animalFavoriteArrayList = new ArrayList<>();
         animalFavoriteArrayList.add(new AnimalFavorite(R.drawable.dota, "Doggie Dota", "1 year | French Black Puppy", "Malang"));
+
+        sizeAnimalList = animalFavoriteArrayList.size();
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        addData();
         View rootview = inflater.inflate(R.layout.fragment_favorite, container, false);
 
-        addData();
+        if (sizeAnimalList != 0) {
 
-        recyclerView = rootview.findViewById(R.id.recycleview);
+            recyclerView = rootview.findViewById(R.id.recycleview);
 
-        adapter = new AnimalFavoriteAdapter(animalFavoriteArrayList);
+            adapter = new AnimalFavoriteAdapter(animalFavoriteArrayList);
 
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
+            RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
 
-        recyclerView.setLayoutManager(layoutManager);
+            recyclerView.setLayoutManager(layoutManager);
 
-        recyclerView.setAdapter(adapter);
+            recyclerView.setAdapter(adapter);
+        }
 
+        Toast.makeText(getContext(), String.valueOf(sizeAnimalList), Toast.LENGTH_SHORT).show();
 
         return rootview;
     }
