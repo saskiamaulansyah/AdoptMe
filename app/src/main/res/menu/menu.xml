@@ -9,7 +9,8 @@
         android:icon="@drawable/ic_baseline_favorite_border_24"
         android:title="Favorite"/>
     <item
-        android:id="@+id/addFragment"/>
+        android:id="@+id/addFragment"
+        android:title="Add"/>
     <item
         android:id="@+id/historyFragment"
         android:icon="@drawable/ic_baseline_list_24"
