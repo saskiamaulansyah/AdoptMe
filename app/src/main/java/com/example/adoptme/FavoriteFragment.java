@@ -3,10 +3,18 @@ package com.example.adoptme;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
+import com.example.adoptme.listFavourite.AnimalFavorite;
+import com.example.adoptme.listFavourite.AnimalFavoriteAdapter;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -23,6 +31,13 @@ public class FavoriteFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private RecyclerView recyclerView;
+    private AnimalFavoriteAdapter adapter;
+    private ArrayList<AnimalFavorite> animalFavoriteArrayList;
+
+    private int sizeAnimalList;
+    private View rootview;
 
     public FavoriteFragment() {
         // Required empty public constructor
@@ -55,10 +70,37 @@ public class FavoriteFragment extends Fragment {
         }
     }
 
+    void addData() {
+        animalFavoriteArrayList = new ArrayList<>();
+        animalFavoriteArrayList.add(new AnimalFavorite(R.drawable.dota, "Doggie Dota", "1 year | French Black Puppy", "Malang"));
+
+        sizeAnimalList = animalFavoriteArrayList.size();
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_favorite, container, false);
+        addData();
+
+        if (sizeAnimalList != 0) {
+
+            rootview = inflater.inflate(R.layout.fragment_favorite, container, false);
+
+            recyclerView = rootview.findViewById(R.id.recycleview);
+
+            adapter = new AnimalFavoriteAdapter(animalFavoriteArrayList);
+
+            RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
+
+            recyclerView.setLayoutManager(layoutManager);
+
+            recyclerView.setAdapter(adapter);
+        } else {
+            rootview = inflater.inflate(R.layout.fragment_favorite_empty, container, false);
+        }
+
+        Toast.makeText(getContext(), String.valueOf(sizeAnimalList), Toast.LENGTH_SHORT).show();
+
+        return rootview;
     }
 }

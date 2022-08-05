@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="8dp"
+    app:cardUseCompatPadding="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="5dp"
+        android:padding="1dp">
+
+
+        <ImageView
+            android:id="@+id/imgFavorite"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="7dp"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/valorant2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/animalFavName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.088" />
+
+        <TextView
+            android:id="@+id/animalFavName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/poppins"
+            android:text="Doggie"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toTopOf="@+id/AnimalFavDescrition"
+            app:layout_constraintStart_toEndOf="@+id/imgFavorite"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/AnimalFavDes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="6dp"
+            android:text="1 year | French Black Puppy"
+            app:layout_constraintStart_toEndOf="@+id/imgFavorite"
+            app:layout_constraintTop_toBottomOf="@+id/animalFavName" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="18dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="6dp"
+            android:src="@drawable/ic_baseline_location_on_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/imgFavorite"
+            app:layout_constraintTop_toBottomOf="@+id/AnimalFavDes"
+            app:tint="#FF6765" />
+
+        <TextView
+            android:id="@+id/animalFavLocation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="34dp"
+            android:maxLines="1"
+            android:minLines="1"
+            android:text="Malang, Indonesia"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/AnimalFavDes" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
