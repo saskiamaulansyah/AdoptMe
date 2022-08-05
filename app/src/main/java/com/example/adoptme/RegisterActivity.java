@@ -120,7 +120,7 @@ public class RegisterActivity extends AppCompatActivity {
                         JSONObject dataObj = jsonObject.getJSONObject("data");
                         JSONObject dataObj2 = dataObj.getJSONObject("data");
                         Toast.makeText(RegisterActivity.this,
-                                "Berhasil", Toast.LENGTH_SHORT).show();
+                                "Create Account Success", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
                     } catch (JSONException e) {
                         e.printStackTrace();

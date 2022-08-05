@@ -117,7 +117,8 @@
                 android:layout_marginTop="40dp"
                 android:layout_marginEnd="46dp"
                 app:cardCornerRadius="25dp"
-                app:cardElevation="10dp"
+                android:layout_marginBottom="10dp"
+                app:cardElevation="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageView">
@@ -126,7 +127,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="fitXY"
-                    android:src="@drawable/valorant2" />
+                    android:src="@drawable/dog" />
 
             </androidx.cardview.widget.CardView>
 
@@ -279,6 +280,7 @@
                 android:layout_height="wrap_content"
                 android:maxLines="4"
                 android:paddingLeft="12dp"
+                android:paddingRight="12dp"
                 android:text="Doggie is super friendly and needs as much love and attention as he gives to you. He’s great with kids which him a wonderful"
                 android:textSize="7pt"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -289,7 +291,7 @@
                 android:id="@+id/textView6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="28dp"
+                android:layout_marginTop="70dp"
                 android:fontFamily="@font/poppins"
                 android:paddingLeft="12dp"
                 android:text="Distance"
@@ -325,7 +327,7 @@
                 android:layout_width="100dp"
                 android:layout_height="50dp"
                 android:layout_marginStart="152dp"
-                android:layout_marginTop="36dp"
+                android:layout_marginTop="70dp"
                 android:backgroundTint="#FF6765"
                 app:layout_constraintStart_toEndOf="@+id/textView7"
                 app:layout_constraintTop_toBottomOf="@+id/textView4"

@@ -74,11 +74,11 @@ public class HomeFragment extends Fragment {
 
     private void loadCards() {
         myModelArrayList = new ArrayList<>();
-        myModelArrayList.add(new MyModelCard("Title 01","desc 01", "03/08/2022", R.drawable.banner_malang_food));
-        myModelArrayList.add(new MyModelCard("Title 02","desc 02", "03/08/2022", R.drawable.dota));
-        myModelArrayList.add(new MyModelCard("Title 03","desc 03", "03/08/2022", R.drawable.dota2));
-        myModelArrayList.add(new MyModelCard("Title 04","desc 04", "03/08/2022", R.drawable.valorant));
-        myModelArrayList.add(new MyModelCard("Title 05","desc 05", "03/08/2022", R.drawable.valorant2));
+        myModelArrayList.add(new MyModelCard("Doggie","French Black Puppy", "6 months old", R.drawable.dog));
+        myModelArrayList.add(new MyModelCard("Doggie","French Black Puppy", "6 months old", R.drawable.dog));
+        myModelArrayList.add(new MyModelCard("Doggie","French Black Puppy", "6 months old", R.drawable.dog));
+        myModelArrayList.add(new MyModelCard("Title 04","desc 04", "03/08/2022", R.drawable.dog));
+        myModelArrayList.add(new MyModelCard("Title 05","desc 05", "03/08/2022", R.drawable.dog));
 
         myAdapterCard = new MyAdapterCard(getContext(), myModelArrayList);
 

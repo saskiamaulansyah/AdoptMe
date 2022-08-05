@@ -125,6 +125,8 @@ public class LoginActivity extends AppCompatActivity {
                         JSONObject jsonObject = new JSONObject(response);
                         JSONObject dataObj = jsonObject.getJSONObject("data");
                         JSONObject dataObj2 = dataObj.getJSONObject("data");
+                        Toast.makeText(LoginActivity.this,
+                                "Login Success", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(LoginActivity.this, MainActivity.class));
                     } catch (JSONException e) {
                         e.printStackTrace();

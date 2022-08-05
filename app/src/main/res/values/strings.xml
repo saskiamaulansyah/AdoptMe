@@ -4,8 +4,11 @@
     <string name="adopt_a_pet">Adopt a pet and make a new friend</string>
     <string name="btn_text">Get Started</string>
     <string name="btn_text2">Sign In</string>
+    <string name="btn_textedit">Save Changes</string>
     <string name="btn_register">Sign Up</string>
     <string name="dont_have">Don’t have an account?</string>
     <string name="have_account">Have an account?</string>
     <string name="prefStatus">loggedin</string>
+    <string name="edit_profil">Edit Profile</string>
+
 </resources>
