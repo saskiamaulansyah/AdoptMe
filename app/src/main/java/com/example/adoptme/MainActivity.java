@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
                     selectedFragment = new FavoriteFragment();
                     break;
                 case R.id.addFragment:
-                    selectedFragment = new AddFragment();
+//                    selectedFragment = new AddFragment();
 //                    Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 //                    if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
 //                        startActivityForResult(takePictureIntent, 1);

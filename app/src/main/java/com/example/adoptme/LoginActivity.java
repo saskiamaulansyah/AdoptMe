@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
@@ -31,6 +32,8 @@ import com.android.volley.ServerError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.StringRequest;
+import com.example.adoptme.adoptme.AdoptmeActivity;
+import com.example.adoptme.adoptme.ApprovalProcessActivity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -115,22 +118,25 @@ public class LoginActivity extends AppCompatActivity {
         progressDialog.setCanceledOnTouchOutside(false);
 //        progressDialog.setIndeterminate(false);
         progressDialog.show();
+
 //        String uRl = "https://sphere-apps.herokuapp.com/api/auth/login";
-        String uRl = "https://adoptme-api.000webhostapp.com/login?email="+email+"&password="+password;
+        String uRl = "http://103.150.92.83/login?email="+email+"&password="+password;
         //String uRl = "https://adoptme-api.000webhostapp.com/login";
         StringRequest request = new StringRequest(Request.Method.POST,
                 uRl,
                 (String response) -> {
-                    try {
-                        JSONObject jsonObject = new JSONObject(response);
-                        JSONObject dataObj = jsonObject.getJSONObject("data");
-                        JSONObject dataObj2 = dataObj.getJSONObject("data");
+//                    Toast.makeText(LoginActivity.this, response.toString(), Toast.LENGTH_SHORT).show();
+//                    try {
+//                        JSONObject jsonObject = new JSONObject(response);
+//                        JSONObject dataObj = jsonObject.getJSONObject("data");
+//                        JSONObject dataObj2 = dataObj.getJSONObject("data");
                         Toast.makeText(LoginActivity.this,
                                 "Login Success", Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(LoginActivity.this, MainActivity.class));
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
+                        finish();
+//                    } catch (JSONException e) {
+//                        e.printStackTrace();
+//                    }
                     progressDialog.dismiss();
                 },
                 new Response.ErrorListener() {
@@ -138,6 +144,7 @@ public class LoginActivity extends AppCompatActivity {
                     public void onErrorResponse(VolleyError error) {
                         // As of f605da3 the following should work
                         NetworkResponse response = error.networkResponse;
+                        Toast.makeText(LoginActivity.this, error.toString(), Toast.LENGTH_SHORT).show();
                         if (error instanceof ServerError && response != null) {
                             try {
                                 String res = new String(response.data,
@@ -152,9 +159,8 @@ public class LoginActivity extends AppCompatActivity {
                                 // returned data is not JSONObject?
                                 e2.printStackTrace();
                             }
-
-                            progressDialog.dismiss();
                         }
+                        progressDialog.dismiss();
                     }
                 })  {
             @Override
